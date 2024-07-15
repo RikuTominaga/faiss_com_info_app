@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <title>output</title>
+
+    <style>
+      body{background-color:#f3f2ee}
+      .title{text-align:center; background-color:#a4b1c4da; color:white; padding:55px; margin:45px; border-radius:30px}
+      h1{border-bottom:solid 2px white;margin-bottom:-17px}
+      p{font-size:x-large}
+      .exp{text-align:center; font-size:15px}
+      span{font-weight:bold}
+      table{font-size:17px; padding:5px; border:3px solid; border-color:#a4b1c4da; border-radius:30px;background-color:white }
+      .bold{font-weight:bold}
+      .bottom{text-align: center}
+      button{font-size:15px; border-radius:100px; border:0; height:30px; width:75px; background-color:rgba(128, 128, 128, 0.177); margin:45px}
+    </style>
+
+  </head>
+  <body>
+    <div class="title">
+      <h1>seach result</h1>
+      <p>query: {{session['output_query']}}</p>
+    </div>
+    <br>
+    <div>
+      <p class="exp">
+        <span>{{session['output_query']}}</span>に関連する表彰情報
+      </p>
+      {% for i in arr %}
+        <table align="center" cellspacing="15" frame="box" >  
+          <tr>
+            <td class="bold" align="right">法人番号</td>
+            <td align="left">{{i[0]}}</td>
+          </tr>
+          <tr>
+            <td class="bold" align="right">法人名</td>
+            <td align="left">{{i[1]}}</td>
+          </tr>
+          <tr>
+            <td class="bold" align="right">内容</td>
+            <td align="left">{{i[2]}}</td>
+          </tr>
+          <tr>
+            <td class="bold" align="right">類似度</td>
+            <td align="left">{{i[3]}}</td>
+          </tr>
+        </table>
+        <br>
+      {% endfor %}
+    </div>
+    <div class="bottom">
+      <button type="button" onclick="history.back()" >＜ back</button>
+    </div>
+  </body>
+</html>
